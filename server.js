@@ -48,74 +48,6 @@ app.get('*', function(req, res) {
 	res.sendFile(path.join(__dirname, 'client', 'app', 'build', 'index.html'));
 });
 
-// create a charge
-// app.post('/charge', (req, res) => {
-	
-// 	// define token
-// 	var token = req.body;
-	
-// 	// create purchase order and charge via stripe
-// 	stripe.customers.create({
-// 		email: token.email,
-// 		description: token.card.name,
-// 		shipping: {
-// 			name: token.shipping_name,
-// 			address: {
-// 				line1: token.shipping_address_line1,
-// 				city: token.shipping_address_city,
-// 				state: token.shipping_address_state,
-// 				postal_code: token.shipping_address_zip,
-// 				country: 'US',
-// 			},
-// 		}
-// 	})
-// 	.then(customer =>
-// 		stripe.orders.create({
-// 			customer: customer.id,
-// 			currency: 'usd',
-// 			email: token.email,
-// 			items: [
-// 				{	
-// 					type: 'sku',
-// 					amount: 4950,
-// 					parent: 'sku_EsM1SJCEEOjzM2',
-// 					quantity: token.qty,
-// 				}
-// 			],
-// 			shipping: {
-// 				name: token.shipping_name,
-// 				address: {
-// 					line1: token.shipping_address_line1,
-// 					city: token.shipping_address_city,
-// 					state: token.shipping_address_state,
-// 					postal_code: token.shipping_address_zip,
-// 					country: 'US',
-// 				},
-// 			}
-// 		})
-// 	)
-// 	.then(order => 
-// 		stripe.orders.pay(order.id, {
-// 			source: token.id
-// 		})
-// 	)
-// 	.catch(err => {
-// 		console.log("Error:", err);
-// 		res.status(500).send({error: "Purchase Failed"});
-// 	});
-	
-// 	// define customer shipping address
-// 	var addressTo = {
-// 		name: token.shipping_name,
-// 		street1: token.shipping_address_line1,
-// 		street2: token.shipping_address_line2,
-// 		city: token.shipping_address_city,
-// 		state: token.shipping_address_state,
-// 		zip: token.shipping_address_zip,
-// 		country: token.shipping_address_country_code
-// 	};
-// });
-
 app.post('/create-checkout-session', async (req, res) => {
 	// const domainURL = localhost;
 	const { 
@@ -154,50 +86,26 @@ app.post('/create-checkout-session', async (req, res) => {
 	res.send({
 		id: session.id
 	});
-	// const session = await stripe.checkout.sessions.create({
-	// 	payment_method_types: ['card'],
-	// 	shipping_rates: [shippingOptions],
-	// 	shipping_address_collection: {
-	// 		allowed_countries: ['US']
-	// 	},
-	// 	locale: locale,
-	// 	line_items: [{
-	// 		price_data: {
-	// 	      	currency: 'usd',
-	// 	      	product_data: {
-	// 		        name: 'Texas Bandit Coon Guard',
-	// 		        images: ['https://i.imgur.com/EHyR2nP.png'],
-	// 	      	},
-	// 	      	unit_amount: 4950,
-	// 	    },
-	// 	    quantity: qty,
-	// 	    tax_rates: ["txr_1IXaXBIV2QH1XGf3s3q7xcy3"],
-	// 	}],
-	// 	mode: "payment",
-	// 	success_url: "http://localhost:3000",
-	// 	cancel_url: "http://localhost:3000"
-	// });
   	// create shipment and purchase
-	// shippo.shipment.create({
-	//     address_from: addressFrom,
-	//     address_to: addressTo,
-	//     parcels: [parcel],
-	//     async: false
-	// }, function(err, shipment){
-	// 	if(err) {
-	// 		console.log(err);
-	// 	}
-	// 	console.log(shipment);
-	//  	// 	shippo.transaction.create({
-	// 	//     "shipment": shipment,
-	// 	//     "carrier_account": config.shippo.carrier,
-	// 	//     "servicelevel_token": "usps_priority"
-	// 	// }, function(err, transaction) {
-	// 	//     if(err) {
-	// 	// 		console.log(err);
-	// 	// 	}
-	// 	// });
-	// });
+	shippo.shipment.create({
+	    address_from: addressFrom,
+	    address_to: addressTo,
+	    parcels: [parcel],
+	    async: false
+	}, function(err, shipment){
+		if(err) {
+			console.log(err);
+		}
+	 	shippo.transaction.create({
+		    "shipment": shipment,
+		    "carrier_account": config.shippo.carrier,
+		    "servicelevel_token": "usps_priority"
+		}, function(err, transaction) {
+		    if(err) {
+				console.log(err);
+			}
+		});
+	});
 });
 
 const port = config.proxyPort || 5000;

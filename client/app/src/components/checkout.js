@@ -67,39 +67,7 @@ class Checkout extends React.Component {
       let displayError = document.getElementById('error-message');
       displayError.textContent = result.error.message;
     }
-    // const { error } = await stripe.redirectToCheckout({
-    //   // sessionId,
-    //   sessionId: session.id,
-    //   submitType: "pay",
-    //   items: cart,
-    //   shippingAddressCollection: {
-    //     allowedCountries: ['US', 'CA'],
-    //   },
-    //   successUrl: window.location.protocol + '//coonguard.com?response=success',
-    //   cancelUrl: window.location.protocol + '//coonguard.com?response=cancel',
-    // })
-    // .then(function (result) {
-    //   if (result.error) {
-    //     // If `redirectToCheckout` fails due to a browser or network
-    //     // error, display the localized error message to your customer.
-    //     var displayError = document.getElementById('error-message');
-    //     displayError.textContent = result.error.message;
-    //   }
-    // });
   }
-  // fetchCheckoutSession() {
-  //   let qty = this.state.quantity;
-  //   return fetch('/create-checkout-session', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       qty,
-  //     }),
-  //   })
-  //   .then((res) => res.json());
-  // }
   updateInputValue(evt) {
     var quantity = Number(evt.target.value);
     var cost = (this.state.quantity * Number(this.state.total)) * 100;
