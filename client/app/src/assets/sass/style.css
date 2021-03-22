@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans");
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+  background: black;
+  font-family: 'Bubblegum Sans', sans-serif; }
+
+a {
+  text-decoration: none; }
+
+h1, h2 {
+  margin: 0;
+  font-weight: lighter; }
+
+h2 {
+  font-size: 36pt;
+  letter-spacing: 1px; }
+
+.noMobile {
+  display: block !important; }
+
+.mobile {
+  display: none !important; }
+
+#splash {
+  text-align: center; }
+  #splash #corn {
+    background: url("../img/bg.jpg") no-repeat scroll top center/contain;
+    height: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.3s ease-in-out; }
+    #splash #corn article {
+      width: 100%;
+      position: absolute; }
+      #splash #corn article.front {
+        background: url("../img/front-corn.png") no-repeat scroll 50%/contain;
+        background-size: 120%;
+        height: 732px;
+        z-index: 3;
+        top: 0; }
+      #splash #corn article.mid {
+        background: url("../img/mid-corn.png") no-repeat scroll center/contain;
+        height: 275px;
+        z-index: 2;
+        top: 160px; }
+      #splash #corn article.back {
+        background: url("../img/back-corn.png") no-repeat scroll center/contain;
+        height: 100px;
+        z-index: 1;
+        top: 285px; }
+  #splash #blueprint {
+    background: linear-gradient(black, #333333); }
+    #splash #blueprint .wrap {
+      width: 850px;
+      margin: 0 auto; }
+      #splash #blueprint .wrap h1 {
+        font-size: 28pt;
+        transform: translate(0, -100px);
+        text-align: center; }
+      #splash #blueprint .wrap h2 {
+        margin-bottom: 50px; }
+      #splash #blueprint .wrap img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        padding-bottom: 100px; }
+    #splash #blueprint .render {
+      transform: translate(0, 75px);
+      width: 80%;
+      margin: 0 auto; }
+  #splash #instructions {
+    background: linear-gradient(#333333, black, #333333);
+    padding: 100px 0; }
+    #splash #instructions article {
+      width: 800px;
+      margin: 100px auto 100px; }
+      #splash #instructions article#tools {
+        margin: 100px auto; }
+        #splash #instructions article#tools h2 {
+          margin-bottom: 50px; }
+    #splash #instructions ol {
+      text-align: left;
+      font-size: 18pt;
+      font-family: sans-serif; }
+      #splash #instructions ol li {
+        margin: 25px 0; }
+    #splash #instructions video {
+      border: 30px solid rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      outline: none;
+      height: 600px;
+      background: #444;
+      margin: 0;
+      box-shadow: none; }
+  #splash #CTA {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#333333, black); }
+    #splash #CTA .package {
+      width: 800px;
+      transform: translate(0, -50px); }
+  #splash #raccoon {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: auto;
+    transform: translate(0, 24px) rotate(-3deg); }
+  #splash #checkout {
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
+    background: linear-gradient(#262626, black);
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 50px; }
+    #splash #checkout article {
+      display: block;
+      margin: 0;
+      padding: 0; }
+      #splash #checkout article input {
+        width: 70px;
+        display: inline-block;
+        line-height: 60px;
+        border-radius: 3px;
+        padding: 0 15px;
+        font-size: 18pt;
+        margin-bottom: 25px;
+        border: none; }
+        #splash #checkout article input:focus {
+          outline: none; }
+      #splash #checkout article#purchaseDetails {
+        box-sizing: border-box;
+        margin-bottom: 25px; }
+        #splash #checkout article#purchaseDetails span {
+          width: 50%;
+          display: inline-block;
+          margin: 0;
+          padding: 0; }
+          #splash #checkout article#purchaseDetails span:first-child {
+            text-align: right;
+            font-size: 14pt;
+            font-family: sans-serif;
+            font-weight: lighter;
+            letter-spacing: 1px;
+            box-sizing: border-box;
+            padding-right: 25px;
+            opacity: 0.5; }
+          #splash #checkout article#purchaseDetails span:last-child {
+            text-align: left;
+            font-size: 24pt;
+            letter-spacing: 1px; }
+          #splash #checkout article#purchaseDetails span.sub {
+            line-height: 30px; }
+            #splash #checkout article#purchaseDetails span.sub:last-child {
+              text-align: left;
+              font-size: 14pt; }
+        #splash #checkout article#purchaseDetails #total {
+          margin-top: 15px; }
+      #splash #checkout article span {
+        display: inline-block;
+        font-size: 24pt;
+        padding-left: 25px; }
+        #splash #checkout article span .dollarsign {
+          width: 15px !important;
+          font-size: 12pt !important;
+          font-weight: lighter;
+          font-family: sans-serif;
+          color: #41A94E;
+          padding: 0 !important;
+          display: inherit;
+          vertical-align: middle;
+          opacity: 1 !important; }
+    #splash #checkout button {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      background: #41A94E;
+      line-height: 50px;
+      color: white;
+      font-size: 16pt;
+      letter-spacing: 1px;
+      display: block;
+      border: none;
+      text-transform: uppercase;
+      border-radius: 3px; }
+      #splash #checkout button:hover {
+        cursor: pointer; }
+      #splash #checkout button:focus {
+        outline: none; }
+    #splash #checkout img {
+      max-width: 300px;
+      height: auto;
+      margin-top: 25px; }
+  #splash footer {
+    font-family: sans-serif;
+    font-size: 10pt;
+    color: #333333;
+    line-height: 21px;
+    padding-bottom: 200px;
+    vertical-align: middle; }
+    #splash footer a {
+      color: #404040; }
+      #splash footer a img {
+        width: 35px;
+        height: auto;
+        display: inline-block;
+        opacity: 0.5;
+        margin-left: 3px;
+        vertical-align: middle; }
+
+@media (min-width: 1400px) {
+  #splash #corn article.front {
+    background: url("../img/front-corn.png") no-repeat scroll center/contain;
+    background-size: inherit; } }
+
+@media (max-width: 1400px) {
+  #splash #corn {
+    background: url("../img/bg.jpg") no-repeat scroll top center/cover;
+    height: 1200px; } }
+
+@media (max-width: 850px) {
+  #splash #blueprint,
+  #splash #render {
+    padding: 0 50px; }
+    #splash #blueprint .wrap,
+    #splash #render .wrap {
+      width: auto; } }
+
+@media (max-width: 414px) {
+  h2 {
+    font-size: 24pt; }
+  .noMobile {
+    display: none !important; }
+  .mobile {
+    display: block !important; }
+  #splash #corn {
+    height: 800px;
+    background-position: 48% 0%; }
+    #splash #corn article.front {
+      height: 300px;
+      padding: 0;
+      background-size: 150%;
+      background-position: 25% 50%; }
+    #splash #corn article.mid {
+      height: 170px;
+      background-size: 80%; }
+    #splash #corn article.back {
+      top: 200px;
+      height: 50px; }
+  #splash #blueprint {
+    padding: 0 25px;
+    box-sizing: border-box; }
+    #splash #blueprint .wrap {
+      width: auto; }
+      #splash #blueprint .wrap h1 {
+        margin: 0;
+        font-size: 25pt; }
+      #splash #blueprint .wrap img {
+        padding-bottom: 100px; }
+    #splash #blueprint .render {
+      max-width: none;
+      width: 125%;
+      transform: translate(-40px, 0);
+      padding-bottom: 25px; }
+  #splash #instructions {
+    margin: 0;
+    width: auto;
+    padding-top: 50px; }
+    #splash #instructions article {
+      width: auto;
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0 15px; }
+      #splash #instructions article#tools {
+        margin: 0; }
+        #splash #instructions article#tools img {
+          max-width: 80%;
+          height: auto;
+          margin: 0 auto;
+          transform: translate(15px, 0); }
+      #splash #instructions article ol {
+        padding-right: 15px;
+        font-weight: lighter; }
+        #splash #instructions article ol li {
+          font-size: 16pt; }
+    #splash #instructions video {
+      width: 100%;
+      height: 230px;
+      border: none;
+      margin: 50px 0; }
+  #splash #CTA {
+    margin-bottom: 25px;
+    margin: 0 auto;
+    background: linear-gradient(#333333, black); }
+    #splash #CTA article input {
+      margin-right: 0; }
+    #splash #CTA article span {
+      margin: 0 0 25px; }
+    #splash #CTA span {
+      padding: 0; }
+    #splash #CTA button {
+      margin: 0 auto; }
+    #splash #CTA img {
+      max-width: 100%;
+      height: auto; }
+    #splash #CTA .package {
+      width: auto;
+      max-width: 125%;
+      transform: translate(-70px, -25px); }
+  #splash footer {
+    padding-bottom: 50px; } }

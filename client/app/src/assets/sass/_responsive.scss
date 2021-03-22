@@ -1,0 +1,148 @@
+@media (min-width: 1400px) {
+	#splash {
+		#corn {
+			article {
+				&.front {
+					background: url('../img/front-corn.png') no-repeat scroll center / contain;
+					background-size: inherit;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 1400px) {
+	#splash {
+		#corn {
+			background: url('../img/bg.jpg') no-repeat scroll top center / cover;
+			height: 1200px;
+		}
+	}
+}
+@media (max-width: 850px) {
+	#splash {
+		#blueprint,
+		#render {
+			padding: 0 50px;
+			.wrap {
+				width: auto;
+			}
+		}
+	}
+}
+@media (max-width: 414px) {
+	h2 {
+		font-size: 24pt;
+	}
+	.noMobile {
+		display: none !important;
+	}
+	.mobile {
+		display: block !important;
+	}
+	#splash {
+		#corn {
+			height: 800px;
+			background-position: 48% 0%;
+			article {
+				&.front {
+					height: 300px;
+					padding: 0;
+					background-size: 150%;
+					background-position: 25% 50%;
+				}
+				&.mid {
+					height: 170px;
+					background-size: 80%;
+				}
+				&.back {
+					top: 200px;
+					height: 50px;
+				}
+			}
+		}
+		#blueprint {
+			padding: 0 25px;
+			box-sizing: border-box;
+			.wrap {
+				width: auto;
+				h1 {
+					margin: 0;
+					font-size: 25pt;
+				}
+				img {
+					padding-bottom: 100px;
+				}
+			}
+			.render {
+				max-width: none;
+				width: 125%;
+				transform: translate(-40px,0);
+				padding-bottom: 25px;
+			}
+		}
+		#instructions {
+			margin: 0;
+			width: auto;
+			padding-top: 50px;
+			article {
+				width: auto;
+				margin: 0;
+				box-sizing: border-box;
+				padding: 0 15px;
+				&#tools {
+					margin: 0;
+					img {
+						max-width: 80%;
+						height: auto;
+						margin: 0 auto;
+						transform: translate(15px,0);
+					}
+				}
+				ol {
+					padding-right: 15px;
+					font-weight: lighter;
+					li {
+						font-size: 16pt;
+					}
+				}
+			}
+			video {
+				width: 100%;
+				height: 230px;
+				border: none;
+				margin: 50px 0;
+			}
+		}
+		#CTA {
+			margin-bottom: 25px;
+			margin: 0 auto;
+			background: linear-gradient(lighten(black, 20%), black);
+			article {
+				input {
+					margin-right: 0;
+				}
+				span {
+					margin: 0 0 25px;
+				}
+			}
+			span {
+				padding: 0;
+			}
+			button {
+				margin: 0 auto;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+			.package {
+				width: auto;
+				max-width: 125%;
+				transform: translate(-70px,-25px);
+			}
+		}
+		footer {
+			padding-bottom: 50px;
+		}
+	}
+}
