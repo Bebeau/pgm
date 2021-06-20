@@ -6,13 +6,14 @@ import ReactGA from 'react-ga';
 
 import payment from '../assets/img/payment-icons.png';
 
-const stripePromise = loadStripe("pk_test_cxHbxzikNLKQSEauqs0AU2Zs");
+const config = require('../config/keys');
+const stripePromise = loadStripe(config.stripe.publishableKey);
 
-const advancedMatching = {};
-const options = {
-    autoConfig: true,
-    debug: false,
-};
+// const advancedMatching = {};
+// const options = {
+//     autoConfig: true,
+//     debug: false,
+// };
 // ReactPixel.init('141808286769279', advancedMatching, options);
 // ReactPixel.pageView();
 
