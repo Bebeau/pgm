@@ -71,38 +71,38 @@ app.post('/create-checkout-session', async (req, res) => {
 			        name: 'Texas Bandit Coon Guard',
 			        images: ['https://stripe-camo.global.ssl.fastly.net/723be6c169f08d4a85b9347cc93b1e1f3298aed5/68747470733a2f2f66696c65732e7374726970652e636f6d2f6c696e6b732f4d44423859574e6a64463878524546714e54644a566a4a52534446595232597a66475a735833526c63335266626b7045516b67305a6d6454626c6f30596c4179546d6c6f5155644d5a6b68773030726d6b6c31594873'],
 		      	},
-		      	unit_amount: 4950,
+		      	unit_amount: 5999
 		    },
 		    quantity: qty,
-		    tax_rates: ["txr_1IXaXBIV2QH1XGf3s3q7xcy3", "txr_1IXcD4IV2QH1XGf39E8enlqs"],
+		    tax_rates: ["txr_1IXaXBIV2QH1XGf3s3q7xcy3"]
 		}],
 		mode: "payment",
-		success_url: "http://localhost:3000",
-		cancel_url: "http://localhost:3000"
+		success_url: "https://coonguard.com",
+		cancel_url: "https://coonguard.com"
 	});
 	res.send({
 		id: session.id
 	});
   	// create shipment and purchase
-	shippo.shipment.create({
-	    address_from: addressFrom,
-	    address_to: addressTo,
-	    parcels: [parcel],
-	    async: false
-	}, function(err, shipment){
-		if(err) {
-			console.log(err);
-		}
-	 	shippo.transaction.create({
-		    "shipment": shipment,
-		    "carrier_account": config.shippo.carrier,
-		    "servicelevel_token": "usps_priority"
-		}, function(err, transaction) {
-		    if(err) {
-				console.log(err);
-			}
-		});
-	});
+	// shippo.shipment.create({
+	//     address_from: addressFrom,
+	//     address_to: addressTo,
+	//     parcels: [parcel],
+	//     async: false
+	// }, function(err, shipment){
+	// 	if(err) {
+	// 		console.log(err);
+	// 	}
+	//  	shippo.transaction.create({
+	// 	    "shipment": shipment,
+	// 	    "carrier_account": config.shippo.carrier,
+	// 	    "servicelevel_token": "usps_priority"
+	// 	}, function(err, transaction) {
+	// 	    if(err) {
+	// 			console.log(err);
+	// 		}
+	// 	});
+	// });
 });
 
 const port = config.proxyPort || 5000;

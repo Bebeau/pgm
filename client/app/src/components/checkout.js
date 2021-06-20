@@ -28,10 +28,8 @@ class Checkout extends React.Component {
       isLoading: true,
       stripeToken: null,
       quantity: 1,
-      price: '49.50',
-      tax: '2.20',
-      shipping: '12.67',
-      total: '66.13',
+      price: '59.99',
+      total: '62.19',
       stripeLoading: true,
     }
     this.checkout = this.checkout.bind(this);
@@ -43,6 +41,9 @@ class Checkout extends React.Component {
     });
   }
   async checkout(event) {
+    this.setState({
+      isLoading: true
+    });
     let qty = this.state.quantity;
     // Call your backend to create the Checkout session.
     // const { sessionId } = await this.fetchCheckoutSession();
@@ -69,24 +70,23 @@ class Checkout extends React.Component {
     }
   }
   updateInputValue(evt) {
-    var quantity = Number(evt.target.value);
-    var cost = (this.state.quantity * Number(this.state.total)) * 100;
+    let quantity = Number(evt.target.value),
+        cost = (this.state.quantity * Number(this.state.total)) * 100;
     this.setState({
       quantity: quantity,
       cost: cost
     });
   }
   render() {
-    var buttonText = this.state.isLoading ? "Please wait ..." : "Buy Now"
-    var buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "")
+    let buttonText = this.state.isLoading ? "Please wait ..." : "Buy Now",
+        buttonClassName = "Pay-Now" + (this.state.isLoading ? " Pay-Now-Disabled" : "");
     if(this.state.stripeToken && this.state.isLoading === true) {
       buttonText = "Processing payment..."
       buttonClassName = "Pay-Now Pay-Now-Disabled"
     }
-    var subtotal = (this.state.quantity * Number(this.state.price));
-    var shipping = (this.state.quantity * Number(this.state.shipping));
-    var tax = (this.state.quantity * Number(this.state.tax));
-    var total = (this.state.quantity * Number(this.state.total));
+    let subtotal = (this.state.quantity * Number(this.state.price)),
+        tax = (subtotal * Number(0.0445)),
+        total = (subtotal + tax);
     return (
       <div id="checkout">
         <article>
@@ -104,7 +104,7 @@ class Checkout extends React.Component {
           </div>
           <div>
             <span>Shipping</span>
-            <span className="sub"><span className="dollarsign">$</span>{shipping.toFixed(2)}</span>
+            <span className="sub">FREE</span>
           </div>
           <div id="total">
             <span>Total</span>
