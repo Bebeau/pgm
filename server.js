@@ -74,7 +74,7 @@ app.post('/create-checkout-session', async (req, res) => {
 		      	unit_amount: 5999
 		    },
 		    quantity: qty,
-		    tax_rates: ["txr_1IXaXBIV2QH1XGf3s3q7xcy3"]
+		    tax_rates: ["txr_1J4VH5IV2QH1XGf3cuIe2Akg"]
 		}],
 		mode: "payment",
 		success_url: "https://coonguard.com",
