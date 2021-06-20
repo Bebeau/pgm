@@ -1,31 +1,28 @@
 const config = require('./config/keys');
-
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-var request = require('superagent');
-
-var stripe = require("stripe")(config.stripe.secretKey);
-
-var shippo = require('shippo')(config.shippo.key);
-var addressFrom = {
-	name: 'PGM Outfitters',
-	street1: '908 Joseph St',
-	city: 'Shreveport',
-	state: 'LA',
-	zip: '71107',
-	phone: '318-469-6502',
-	country: 'US'
-};
-var parcel = {
-	length: 12,
-	width: 24,
-	height: 1,
-	distance_unit: 'in',
-	weight: 128,
-	mass_unit: 'oz'
-};
+let request = require('superagent'),
+	stripe = require("stripe")(config.stripe.secretKey),
+	shippo = require('shippo')(config.shippo.key),
+	addressFrom = {
+		name: 'PGM Outfitters',
+		street1: '908 Joseph St',
+		city: 'Shreveport',
+		state: 'LA',
+		zip: '71107',
+		phone: '318-469-6502',
+		country: 'US'
+	},
+	parcel = {
+		length: 12,
+		width: 24,
+		height: 1,
+		distance_unit: 'in',
+		weight: 128,
+		mass_unit: 'oz'
+	};
 
 const app = express();
 
