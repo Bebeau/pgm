@@ -9,7 +9,7 @@
     "eslint": "^7.19.0",
     "eslint-webpack-plugin": "^2.4.3",
     "express": "^4.16.4",
-    "node-sass": "4.14.1",
+    "sass": "^1.38.2",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
@@ -35,7 +35,7 @@
     "client": "yarn --cwd client/app start",
     "dev": "concurrently \"yarn run server\" \"yarn run client\" \"yarn run sass\"",
     "prod": "concurrently \"yarn run server\" \"yarn --cwd client/app start\"",
-    "sass": "node-sass --watch client/app/src/assets/sass -o client/app/src/assets/css"
+    "sass": "sass --watch client/app/src/assets/sass:client/app/src/assets/css"
   },
   "eslintConfig": {
     "extends": "react-app"
