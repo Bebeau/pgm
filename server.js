@@ -46,18 +46,11 @@ app.get('*', function(req, res) {
 });
 
 app.post('/create-checkout-session', async (req, res) => {
-	// const domainURL = localhost;
 	const { 
 		qty,
 		locale 
 	} = req.body;
-	// Create new Checkout Session for the order
-	// Other optional params include:
-	// [billing_address_collection] - to display billing address details on the page
-	// [customer] - if you have an existing Stripe Customer ID
-	// [payment_intent_data] - lets capture the payment later
-	// [customer_email] - lets you prefill the email input in the form
-	// For full details see https://stripe.com/docs/api/checkout/sessions/create
+
 	const session = await stripe.checkout.sessions.create({
 		payment_method_types: ['card'],
 		shipping_address_collection: {
@@ -77,32 +70,13 @@ app.post('/create-checkout-session', async (req, res) => {
 		    tax_rates: ["txr_1J4VH5IV2QH1XGf3cuIe2Akg"]
 		}],
 		mode: "payment",
-		success_url: "https://coonguard.com",
-		cancel_url: "https://coonguard.com"
+		success_url: "https://texasbanditcoonguard.com",
+		cancel_url: "https://texasbanditcoonguard.com"
 	});
+	
 	res.send({
 		id: session.id
 	});
-  	// create shipment and purchase
-	// shippo.shipment.create({
-	//     address_from: addressFrom,
-	//     address_to: addressTo,
-	//     parcels: [parcel],
-	//     async: false
-	// }, function(err, shipment){
-	// 	if(err) {
-	// 		console.log(err);
-	// 	}
-	//  	shippo.transaction.create({
-	// 	    "shipment": shipment,
-	// 	    "carrier_account": config.shippo.carrier,
-	// 	    "servicelevel_token": "usps_priority"
-	// 	}, function(err, transaction) {
-	// 	    if(err) {
-	// 			console.log(err);
-	// 		}
-	// 	});
-	// });
 });
 
 const port = config.proxyPort || 5000;
