@@ -27,7 +27,7 @@
     "webpack": "4.44.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build": "yarn --cwd client/app build",
