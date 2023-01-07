@@ -1,25 +1,9 @@
 import React from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-
-// import ReactPixel from 'react-facebook-pixel';
-import ReactGA from 'react-ga';
-
 import payment from '../assets/img/payment-icons.png';
 
 const config = require('../config/keys');
 const stripePromise = loadStripe(config.stripe.publishableKey);
-
-// const advancedMatching = {};
-// const options = {
-//     autoConfig: true,
-//     debug: false,
-// };
-// ReactPixel.init('141808286769279', advancedMatching, options);
-// ReactPixel.pageView();
-
-ReactGA.initialize('UA-44007005-13');
-ReactGA.plugin.require('ecommerce');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 class Checkout extends React.Component {
   constructor() {
